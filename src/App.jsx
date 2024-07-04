@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import 'remixicon/fonts/remixicon.css'
 
 const App = () => {
 
+  const [menu, setMenu] = useState(false)
+
   const renderNavSection = () => {
     return (
-        <nav className='bg-white shadow flex flex-row justify-between items-center px-4 lg:px-20 py-2 w-full h-16'>
+        <nav className='bg-white flex flex-row justify-between items-center px-4 lg:px-20 py-2 w-full h-16'>
             <div>
               <img src='./images/logo.png' alt='logo' className='w-24'/>
             </div>
@@ -23,8 +26,8 @@ const App = () => {
                 Let's Talk
                 <i className='ri-arrow-right-up-line ml-1'></i>
               </button>
-              <button className='bg-blue-500 px-4 py-2 md:px-6 md:py-3 rounded-lg text-white lg:hidden'>
-                <i className='ri-menu-3-line text-lg'></i>
+              <button className='bg-blue-500 px-4 py-2 md:px-6 md:py-3 rounded-lg text-white lg:hidden' onClick={()=>setMenu(!menu)}>
+                {menu ? <i className='ri-close-large-line text-lg'></i> : <i className='ri-menu-3-line text-lg'></i> }
               </button>
             </div>
           </nav>
@@ -59,7 +62,7 @@ const App = () => {
   const renderClientSection = () => {
     return (
       <section className='w-full min-h-screen px-4 py-4 lg:py-10 lg:px-20 bg-slate-100'>
-          <div className='text-center py-8 lg:py-20 space-y-2'>
+          <div className='text-center py-8 lg:py-10 space-y-2'>
             <h5 className='text-lg lg:text-2xl text-blue-500 font-medium'><i className='ri-arrow-right-double-line mt-1'></i>Clients</h5>
             <h1 className='text-2xl font-bold lg:text-4xl'>Clients I've worked with</h1>
           </div>
@@ -126,7 +129,7 @@ const App = () => {
   const renderServicesSection = () => {
     return (
       <section className='w-full min-h-screen px-4 py-4 lg:py-10 lg:px-20 bg-slate-50'>
-          <div className='text-center py-8 lg:py-20 space-y-2'>
+          <div className='text-center py-8 lg:py-10 space-y-2'>
             <h5 className='text-lg lg:text-2xl text-blue-500 font-medium'><i className='ri-arrow-right-double-line mt-1'></i>MY SERVICES</h5>
             <h1 className='text-2xl font-bold lg:text-4xl'>What I Do</h1>
           </div>
@@ -195,7 +198,7 @@ const App = () => {
   const renderResumeSection = () => {
     return (
       <section className='w-full min-h-screen px-4 py-4 lg:py-10 lg:px-20 bg-slate-100'>
-          <div className='text-center py-8 lg:py-20 space-y-2'>
+          <div className='text-center py-8 lg:py-10 space-y-2'>
             <h5 className='text-lg lg:text-2xl text-blue-500 font-medium'>^ RESUME ^</h5>
           </div>
           <div>
@@ -304,7 +307,7 @@ const renderWorkSection = () => {
 const renderTestimonialSection = () => {
   return (
     <section className='w-full h-auto px-4 py-4 lg:py-10 lg:px-20 bg-slate-100 bg-[url("./images/map-transparent.png")] object-cover'>
-      <div className='text-center py-8 lg:py-20 space-y-2'>
+      <div className='text-center py-8 lg:py-10 space-y-2'>
           <h5 className='text-lg lg:text-xl text-blue-500 font-medium'><i className='ri-arrow-right-double-line mt-1'></i>TESTIMONIALS</h5>
           <h1 className='text-2xl font-bold lg:text-4xl lg:text-4xl'>What My Clients Say</h1>
       </div>
@@ -385,7 +388,7 @@ const renderAboutSection = () => {
 const renderFaqSection = () => {
   return (
     <section className='w-full min-h-screen px-4 py-4 lg:py-10 lg:px-20 bg-white'>
-      <div className='text-center py-8 lg:py-20 space-y-2'>
+      <div className='text-center py-8 lg:py-10 space-y-2'>
           <h5 className='text-lg lg:text-xl text-blue-500 font-medium'><i className='ri-arrow-right-double-line mt-1'></i>FAQ</h5>
           <h1 className='text-2xl font-bold lg:text-4xl lg:text-4xl'>Your Question and Answer</h1>
       </div>
@@ -440,32 +443,33 @@ const renderFaqSection = () => {
 
 const renderUpdateSection = () => {
   return(
-    <section className='w-full min-h-screen px-2 py-4 lg:py-10 lg:px-20 bg-slate-50'>
-      <div className='text-center py-20'>
-        <h1 className='text-2xl text-blue-500 font-medium'><i className='ri-arrow-right-double-line mt-1'></i>UPDATE</h1>
+    <section className='w-full h-auto px-4 py-4 lg:py-10 lg:px-20 bg-slate-50'>
+      <div className='text-center py-8 lg:py-10 space-y-2'>
+          <h5 className='text-lg lg:text-xl text-blue-500 font-medium'><i className='ri-arrow-right-double-line mt-1'></i>UPDATES</h5>
+          <h1 className='text-2xl font-bold lg:text-4xl lg:text-4xl'>Latest News & Blogs</h1>
       </div>
       <div className='grid lg:grid-cols-3 gap-10'>
-        <div>
-          <img src="./images/post_01.jpg" alt="post" className='w-full'/>
-          <div className='p-6 bg-white space-y-4 shadow'>
+        <div className='bg-white shadow rounded-t'>
+          <img src="./images/post_01.jpg" alt="post" className='w-full rounded-t'/>
+          <div className='p-6 space-y-4'>
             <h2 className='text-xl font-semibold'>Do you want to become a professional ?</h2>
             <div>
               <p>By Flixta | May 2, 2024</p>
             </div>
           </div>
         </div>
-        <div>
-          <img src="./images/post_02.jpg" alt="post" className='w-full'/>
-          <div className='p-6 bg-white space-y-4 shadow'>
+        <div className='bg-white shadow rounded-t'>
+          <img src="./images/post_02.jpg" alt="post" className='w-full rounded-t'/>
+          <div className='p-6 space-y-4'>
             <h2 className='text-xl font-semibold'>If you are new there then this ?</h2>
             <div>
               <p>By Flixta | May 2, 2024</p>
             </div>
           </div>
         </div>
-        <div>
-          <img src="./images/post_03.jpg" alt="post" className='w-full'/>
-          <div className='p-6 bg-white space-y-4 shadow'>
+        <div className='bg-white shadow rounded-t'>
+          <img src="./images/post_03.jpg" alt="post" className='w-full rounded-t'/>
+          <div className='p-6 space-y-4'>
             <h2 className='text-xl font-semibold'>How do you improve coding skills ?</h2>
             <div>
               <p>By Flixta | May 2, 2024</p>
@@ -479,47 +483,49 @@ const renderUpdateSection = () => {
 
 const renderContactSection = () => {
   return (
-    <section className='w-full min-h-screen px-2 py-4 lg:py-10 lg:px-20 bg-[url("./images/map-transparent.png")] object-cover'>
-        <div className='grid lg:grid-cols-2'>
+    <section className='w-full h-auto px-4 py-4 lg:py-10 lg:px-20 lg:bg-[url("./images/map-transparent.png")] bg-slate-100 object-cover'>
+        <div className='grid lg:grid-cols-2 gap-12 py-6'>
           <div className='space-y-8'>
-            <h1 className='text-xl text-blue-500 font-medium'><i className='ri-arrow-right-double-line mt-1'></i>STAY CONNECTED</h1>
-            <h2 className='text-4xl font-bold'>Let’s Work Together!</h2>
+            <div className='space-y-2'>
+              <h5 className='text-xl text-blue-500 font-medium'><i className='ri-arrow-right-double-line mt-1'></i>STAY CONNECTED</h5>
+              <h2 className='lg:text-4xl font-bold text-2xl'>Let’s Work Together!</h2>
+            </div>
             <div className='space-y-8'>
               <div className='flex flex-row justift-start items-center gap-8'>
-                <div className='w-16 h-16 bg-blue-500 rounded-full flex justify-center items-center'><i class="ri-phone-line text-2xl text-white"></i></div>
+                <div className='lg:w-16 lg:h-16 w-14 h-14 w-14 h-14 bg-blue-500 rounded-full flex justify-center items-center'><i class="ri-phone-line text-2xl text-white"></i></div>
                 <div>
                   <p className='text-slate-500'>Phone</p>
-                  <p className='text-xl font-medium'>+123-4669-1234</p>
+                  <p className='lg:text-xl text-[15px] lg:font-medium'>+123-4669-1234</p>
                 </div>
               </div>
               <div className='flex flex-row justift-start items-center gap-8'>
-                <div className='w-16 h-16 bg-blue-500 rounded-full flex justify-center items-center'><i class="ri-mail-line text-2xl text-white"></i></div>
+                <div className='lg:w-16 lg:h-16 w-14 h-14 bg-blue-500 rounded-full flex justify-center items-center'><i class="ri-mail-line text-2xl text-white"></i></div>
                 <div>
                   <p className='text-slate-500'>Email</p>
-                  <p className='text-xl font-medium'>hello@flixta.com</p>
+                  <p className='lg:text-xl text-[15px] lg:font-medium'>hello@flixta.com</p>
                 </div>
               </div>
               <div className='flex flex-row justift-start items-center gap-8'>
-                <div className='w-16 h-16 bg-blue-500 rounded-full flex justify-center items-center'><i class="ri-map-pin-line text-2xl text-white"></i></div>
+                <div className='lg:w-16 lg:h-16 w-14 h-14 bg-blue-500 rounded-full flex justify-center items-center'><i class="ri-map-pin-line text-2xl text-white"></i></div>
                 <div>
                   <p className='text-slate-500'>Address</p>
-                  <p className='text-xl font-medium'>2096 New Market, New Road <br /> North Carolina, USA</p>
+                  <p className='lg:text-xl text-[15px] lg:font-medium'>2096 New Market, New Road <br /> North Carolina, USA</p>
                 </div>
               </div>
             </div>
           </div>
           <div>
-            <form action="" className='bg-white rounded-lg shadow grid grid-cols-2 w-full p-10 gap-4'>
-                  <input type="text" className='col-span-1 border p-4 rounded' placeholder='Full Name'/>
-                  <input type="text" className='col-span-1 border p-4 rounded' placeholder='Email'/>
-                  <input type="text" className='col-span-1 border p-4 rounded' placeholder='Your Phone'/>
-                  <select type="text" className='col-span-1 border p-4 rounded'>
+            <form action="" className='bg-white rounded-lg shadow grid grid-cols-2 w-full p-8 gap-4'>
+                  <input type="text" className='col-span-2 lg:col-span-1 border p-3 rounded' placeholder='Full Name'/>
+                  <input type="text" className='col-span-2 lg:col-span-1 border p-3 rounded' placeholder='Email'/>
+                  <input type="text" className='col-span-2 lg:col-span-1 border p-3 rounded' placeholder='Your Phone'/>
+                  <select type="text" className='col-span-2 lg:col-span-1 border p-3 rounded'>
                     <option>Web Development</option>
                     <option>App Development</option>
                   </select>
                   <textarea className='col-span-2 border p-4 rounded' rows="4" placeholder='Write Your Message'></textarea>
                   <div>
-                    <button className='bg-blue-500 px-6 py-3 text-white rounded-full'>SEND MESSAGE</button>
+                    <button className='bg-blue-500 w-[180px] px-6 py-4 text-white rounded-full'>SEND MESSAGE</button>
                   </div>
             </form>
           </div>
@@ -528,9 +534,44 @@ const renderContactSection = () => {
   )
 }
 
+const renderFooterSection = () => {
+  return (
+    <section className='px-4 py-12 bg-slate-50'>
+        <div className='space-y-6 flex flex-col items-center'>
+          <div><img src="./images/logo.png" alt="" className='w-[100px]'/></div>
+          <ul className='flex flex-wrap flex-row justify-center gap-x-5 gap-y-2'>
+            <li><a href="#" className='text-[18px] text-slate-500'>Home</a></li>
+            <li><a href="#" className='text-[18px] text-slate-500'>About</a></li>
+            <li><a href="#" className='text-[18px] text-slate-500'>Services</a></li>
+            <li><a href="#" className='text-[18px] text-slate-500'>Portfolio</a></li>
+            <li><a href="#" className='text-[18px] text-slate-500'>Blog</a></li>
+            <li><a href="#" className='text-[18px] text-slate-500'>Contact</a></li>
+          </ul>
+          <p className='text-slate-500' ><i className="ri-copyright-line"></i> 2024 Aravind Cheekati</p>
+        </div>
+    </section>
+  )
+}
+
+const renderMenuSection = () => {
+  return (
+    <section className='py-4 px-4 w-full h-auto fixed bg-white'>
+        <ul>
+          <li className='py-4 border-b text-[13px] font-medium'><a href="#">Home</a></li>
+          <li className='py-4 border-b text-[13px] font-medium'><a href="#">About</a></li>
+          <li className='py-4 border-b text-[13px] font-medium'><a href="#">Services</a></li>
+          <li className='py-4 border-b text-[13px] font-medium'><a href="#">Portfolio</a></li>
+          <li className='py-4 border-b text-[13px] font-medium'><a href="#">Blog</a></li>
+          <li className='py-4 border-b text-[13px] font-medium'><a href="#">Contact</a></li>
+        </ul>
+    </section>
+  )
+}
+
   return (
       <div>
         {renderNavSection()}
+        {menu && renderMenuSection()}
         {renderHeaderSection()}
         {renderClientSection()}
         {renderServicesSection()}
@@ -541,6 +582,7 @@ const renderContactSection = () => {
         {renderFaqSection()}
         {renderUpdateSection()}
         {renderContactSection()}
+        {renderFooterSection()}
       </div>        
   )
 }
