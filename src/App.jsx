@@ -7,7 +7,7 @@ const App = () => {
 
   const renderNavSection = () => {
     return (
-        <nav className='bg-white flex flex-row justify-between items-center px-4 lg:px-20 py-2 w-full h-16'>
+        <nav className='bg-white flex flex-row justify-between items-center px-4 lg:px-20 py-2 w-full h-16 sticky top-0 z-10'>
             <div>
               <img src='./images/logo.png' alt='logo' className='w-24'/>
             </div>
